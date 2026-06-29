@@ -8,7 +8,7 @@ const prevBtn = document.getElementById('prev-slide-btn') as HTMLButtonElement;
 const nextBtn = document.getElementById('next-slide-btn') as HTMLButtonElement;
 const themeToggleBtn = document.getElementById('theme-toggle') as HTMLButtonElement;
 
-const totalSlides = 15;
+const totalSlides = 17;
 let currentSlide = 1;
 
 // Initialize theme from LocalStorage
