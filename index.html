@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zaky Jundana — Art Director &amp; Product Developer</title>
+    <!-- Google Fonts for Editorial Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="light-theme">
+    <!-- Grid Overlay Lines for Editorial Blueprint Look -->
+    <div class="grid-overlay">
+      <div class="grid-line vertical"></div>
+      <div class="grid-line vertical"></div>
+      <div class="grid-line vertical"></div>
+      <div class="grid-line vertical"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+      <div class="header-logo">
+        <span class="mono-label">BRAND</span>
+        <span class="logo-text">ZAKY JUNDANA</span>
+      </div>
+      <div class="header-center">
+        <span class="slide-indicator" id="slide-num">01 / 15</span>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress"></div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+          <span class="mono-label">DARK MODE</span>
+        </button>
+        <span class="mono-label desktop-only">PRESENTATION 2026</span>
+      </div>
+    </header>
+
+    <!-- Main Slide Container -->
+    <main class="slider-container" id="slider">
+      
+      <!-- SLIDE 01: HERO COVER -->
+      <section class="slide hero-slide" id="slide-1" data-index="1">
+        <div class="slide-grid">
+          <div class="col-left">
+            <span class="mono-label">PORTFOLIO COVER</span>
+            <div class="hero-image-wrapper">
+              <img src="/src/assets/profile_headshot.jpg" alt="Zaky Jundana Portrait" class="bw-image" />
+            </div>
+            <p class="hero-desc">ART DIRECTION, GRAPHIC DESIGN &amp; PRODUCT DEVELOPMENT ARCHITECTURE. BASED IN INDONESIA.</p>
+          </div>
+          <div class="col-right">
+            <div class="brutalist-block">
+              <span class="vertical-text">MINIMAL</span>
+              <div class="title-overlap">
+                <span class="bg-letter">Z</span>
+                <h1 class="main-title">PORT<br>FOLIO</h1>
+                <span class="subtitle">PRESENTATION</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 02: INDEX -->
+      <section class="slide index-slide" id="slide-2" data-index="2">
+        <div class="slide-grid-half">
+          <div class="side-left">
+            <span class="mono-label">TABLE OF CONTENTS</span>
+            <h2 class="slide-title">INDEX</h2>
+          </div>
+          <div class="side-right">
+            <nav class="index-nav">
+              <div class="index-item" data-target="3">
+                <span class="mono-label">01</span>
+                <span class="index-text">MESSAGE &amp; INTRO</span>
+              </div>
+              <div class="index-item" data-target="4">
+                <span class="mono-label">02</span>
+                <span class="index-text">RESUME / QUALIFICATIONS</span>
+              </div>
+              <div class="index-item" data-target="5">
+                <span class="mono-label">03</span>
+                <span class="index-text">MISSION &amp; VISION</span>
+              </div>
+              <div class="index-item" data-target="7">
+                <span class="mono-label">04</span>
+                <span class="index-text">SERVICES &amp; SOLUTIONS</span>
+              </div>
+              <div class="index-item" data-target="8">
+                <span class="mono-label">05</span>
+                <span class="index-text">PHILOSOPHY</span>
+              </div>
+              <div class="index-item" data-target="11">
+                <span class="mono-label">06</span>
+                <span class="index-text">PROJECTS DIVE</span>
+              </div>
+              <div class="index-item" data-target="15">
+                <span class="mono-label">07</span>
+                <span class="index-text">THANKS &amp; CONTACT</span>
+              </div>
+            </nav>
+            <div class="index-footer">
+              <span class="mono-label">EST. 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 03: INTRO -->
+      <section class="slide intro-slide" id="slide-3" data-index="3">
+        <div class="slide-grid-half">
+          <div class="side-left relative">
+            <span class="mono-label">INTRODUCTION</span>
+            <h2 class="slide-title">INTRO.</h2>
+            <!-- Orange Circle Graphic -->
+            <div class="circle-graphic outline-red"></div>
+          </div>
+          <div class="side-right centered-content">
+            <div class="intro-textbox">
+              <p class="script-text">Creative Direction</p>
+              <p class="intro-paragraph">
+                I merge structural product development with premium visual direction. Over the last five years, I've designed geometric frameworks for industrial mass-production while directing key visuals for national brands.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 04: RESUME / QUALIFICATION -->
+      <section class="slide resume-slide" id="slide-4" data-index="4">
+        <div class="slide-grid">
+          <div class="col-span-1 border-right">
+            <span class="mono-label">04.A / EDUCATION</span>
+            <h3 class="section-subtitle">Education</h3>
+            <ul class="resume-list">
+              <li>
+                <span class="mono-label">2013 - 2016</span>
+                <p class="resume-item-title">Diploma in Graphic Arts</p>
+                <p class="resume-item-sub">Polimedia (State Polytechnic of Creative Media)</p>
+              </li>
+            </ul>
+            
+            <div class="skills-box">
+              <h3 class="section-subtitle">Core Skills</h3>
+              <div class="skills-grid">
+                <span class="skill-tag">Creative Direction</span>
+                <span class="skill-tag">Adobe Illustrator</span>
+                <span class="skill-tag">Photoshop &amp; InDesign</span>
+                <span class="skill-tag">Product Geometry</span>
+                <span class="skill-tag">User &amp; Market Research</span>
+                <span class="skill-tag">Manufacturing Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-2">
+            <div class="resume-header-overlay">
+              <span class="mono-label">04.B / CAPABILITIES</span>
+              <h2 class="slide-title sm">RESUME/ <br>QUALIFICATION</h2>
+            </div>
+            <div class="experience-box">
+              <h3 class="section-subtitle">Experience</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <span class="mono-label">2024 - Present</span>
+                  <div class="timeline-content">
+                    <p class="timeline-title">Product Development &amp; Design</p>
+                    <p class="timeline-company">PT. Roda Maju Bahagia (Element Bike)</p>
+                    <p class="timeline-desc">Designing new bicycle frame geometries, artwork, and visual identities. Conducting user research and coordinating with production divisions for manufacturing efficiency.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="mono-label">2022 - 2025</span>
+                  <div class="timeline-content">
+                    <p class="timeline-title">Associate Art Director</p>
+                    <p class="timeline-company">Colibri Communication</p>
+                    <p class="timeline-desc">Led and directed the design team, spearheaded pitch processes with key visuals, and managed workflow for major brands like BRI, Vivo, and Citilink.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 05: MISSION -->
+      <section class="slide mission-slide" id="slide-5" data-index="5">
+        <div class="slide-grid-half">
+          <div class="side-left relative">
+            <span class="mono-label">05 / PURPOSE</span>
+            <!-- Red Circle behind title -->
+            <div class="solid-circle-accent"></div>
+            <h2 class="slide-title overlay">MISSION</h2>
+          </div>
+          <div class="side-right centered-content">
+            <div class="bullet-list-container">
+              <p class="mono-label sub-heading">OUR GUIDING PRINCIPLES</p>
+              <ul class="bullet-list">
+                <li>Creating digital and physical designs that serve a direct functional need.</li>
+                <li>Bridging client business objectives with high-aesthetic visual communication.</li>
+                <li>Ensuring flawless precision, from grid lines to manufacturing blueprints.</li>
+                <li>Fostering cross-functional synergy between creative and engineering teams.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 06: VISION -->
+      <section class="slide vision-slide" id="slide-6" data-index="6">
+        <div class="slide-grid-half">
+          <div class="side-left centered-content border-right">
+            <p class="intro-paragraph italic-serif">
+              "We must envision spaces and products that are not just visited or used, but remembered. Design is the intersection of logic and feeling."
+            </p>
+          </div>
+          <div class="side-right relative">
+            <span class="mono-label">06 / FUTURE</span>
+            <div class="solid-circle-accent bottom-right"></div>
+            <h2 class="slide-title overlay">VISION</h2>
+            <div class="bullet-list-container space-top">
+              <ul class="bullet-list">
+                <li>Pushing the boundaries of sustainable product engineering.</li>
+                <li>Redefining visual advertising with bold key visual graphics.</li>
+                <li>Mentoring the next generation of graphic designers and product architects.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 07: SERVICES -->
+      <section class="slide services-slide" id="slide-7" data-index="7">
+        <div class="slide-grid-half">
+          <div class="side-left relative border-right">
+            <span class="mono-label">07 / OFFERINGS</span>
+            <h2 class="slide-title">SERVICES</h2>
+            <div class="circle-graphic outline-red small"></div>
+          </div>
+          <div class="side-right">
+            <div class="services-grid">
+              <div class="service-card">
+                <span class="service-icon">✦</span>
+                <h3 class="service-name">Art Direction</h3>
+                <p class="service-desc">Providing cohesive creative leadership to align campaigns with target demographics and visual branding.</p>
+              </div>
+              <div class="service-card">
+                <span class="service-icon">✦</span>
+                <h3 class="service-name">Product Design</h3>
+                <p class="service-desc">Developing frame geometries, physical dimensions, material selections, and technical manufacturing coordinates.</p>
+              </div>
+              <div class="service-card">
+                <span class="service-icon">✦</span>
+                <h3 class="service-name">Key Visual Creation</h3>
+                <p class="service-desc">Crafting high-impact pitch visual layouts and marketing campaign graphics for massive corporate clients.</p>
+              </div>
+              <div class="service-card">
+                <span class="service-icon">✦</span>
+                <h3 class="service-name">User Research</h3>
+                <p class="service-desc">Executing focused demographic studies, market surveys, and feedback loops to guide product improvements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 08: COLLABORATORS (REAL EXPERIENCE SUMMARY) -->
+      <section class="slide team-slide" id="slide-8" data-index="8">
+        <div class="slide-grid-half">
+          <div class="side-left relative">
+            <span class="mono-label">08 / CAREER TIMELINE</span>
+            <div class="solid-circle-accent top-left"></div>
+            <h2 class="slide-title overlay">EXPERIENCE<br>SUMMARY</h2>
+          </div>
+          <div class="side-right">
+            <div class="team-grid">
+              <div class="team-member-card">
+                <div class="team-photo">
+                  <img src="/src/assets/profile_headshot.jpg" alt="Zaky Jundana" class="bw-image" />
+                </div>
+                <div class="team-info">
+                  <span class="rating">★★★★★</span>
+                  <p class="team-name">ELEMENT BIKE</p>
+                  <p class="team-role">PRODUCT DEV &amp; DESIGN</p>
+                </div>
+              </div>
+              <div class="team-member-card">
+                <div class="team-photo">
+                  <img src="/src/assets/project3.png" alt="Colibri" class="bw-image" />
+                </div>
+                <div class="team-info">
+                  <span class="rating">★★★★★</span>
+                  <p class="team-name">COLIBRI COMMS</p>
+                  <p class="team-role">ASSOCIATE ART DIRECTOR</p>
+                </div>
+              </div>
+              <div class="team-member-card">
+                <div class="team-photo">
+                  <img src="/src/assets/project2.png" alt="Srengenge" class="bw-image" />
+                </div>
+                <div class="team-info">
+                  <span class="rating">★★★★★</span>
+                  <p class="team-name">SRENGENGE CIPTA</p>
+                  <p class="team-role">SR. GRAPHIC DESIGNER</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 09: PHILOSOPHY QUOTE -->
+      <section class="slide quote-slide" id="slide-9" data-index="9">
+        <div class="quote-container">
+          <span class="mono-label">09 / CORE CREDO</span>
+          <div class="quote-circle-wrapper">
+            <div class="huge-circle-accent"></div>
+            <blockquote class="huge-quote">
+              "DESIGN IS<br>UNDERSTANDING BEFORE<br>EXECUTION."
+            </blockquote>
+          </div>
+          <p class="mono-label footer-author">— SWISS DESIGN PRINCIPLES</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: LEADER SPEECH -->
+      <section class="slide speech-slide" id="slide-10" data-index="10">
+        <div class="slide-grid">
+          <div class="col-left centered-content border-right">
+            <div class="speech-image-wrapper">
+              <img src="/src/assets/profile_headshot.jpg" alt="Zaky Jundana Portrait" class="bw-image" />
+            </div>
+          </div>
+          <div class="col-right flex-column">
+            <span class="mono-label">10 / STATEMENT</span>
+            <div class="speech-header">
+              <h2 class="slide-title sm">DESIGN<br>PHILOSOPHY</h2>
+            </div>
+            <div class="speech-body">
+              <p class="script-text">Zaky Jundana</p>
+              <p class="speech-text">
+                "We don't build products just to exist in the market. We build them to perform, inspire, and create a seamless bridge between modern aesthetics and solid engineering. Everything we deploy is optimized for speed, clarity, and visual impact."
+              </p>
+              <span class="mono-label block-label">ZAKY JUNDANA - ART DIRECTOR</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: PROJECT INTRO -->
+      <section class="slide project-intro-slide" id="slide-11" data-index="11">
+        <div class="slide-grid-half">
+          <div class="side-left centered-content border-right">
+            <span class="mono-label">11 / WORKS</span>
+            <h2 class="slide-title lg">LET'S DIVE INTO</h2>
+          </div>
+          <div class="side-right centered-content relative">
+            <div class="script-overlay-box">
+              <span class="script-text lg">Projects</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: PROJECT 01 -->
+      <section class="slide project-detail-slide" id="slide-12" data-index="12">
+        <div class="slide-grid">
+          <div class="col-left border-right relative">
+            <span class="mono-label">12 / FEATURED WORK 01</span>
+            <div class="project-header">
+              <span class="project-index">PROJECT</span>
+              <span class="project-number">01</span>
+            </div>
+            <div class="project-image-box">
+              <img src="/src/assets/project1.png" alt="Project 01" class="bw-image" />
+            </div>
+          </div>
+          <div class="col-right flex-column justify-between">
+            <div class="project-details">
+              <h3 class="project-title">BIKE GEOMETRY</h3>
+              <p class="project-desc">Engineering frame geometries and visual identities for mass-produced Element Bike products. Structured to balance performance and modern styling.</p>
+              <div class="project-meta">
+                <div><span class="mono-label">COMPANY</span><p>Element Bike</p></div>
+                <div><span class="mono-label">SERVICES</span><p>Product Design, R&amp;D</p></div>
+              </div>
+            </div>
+            <div class="project-stats-block">
+              <span class="stats-label">SCALE OF OPERATION</span>
+              <span class="stats-value">MASS PROD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: PROJECT 02 -->
+      <section class="slide project-detail-slide" id="slide-13" data-index="13">
+        <div class="slide-grid">
+          <div class="col-left border-right relative">
+            <span class="mono-label">13 / FEATURED WORK 02</span>
+            <div class="project-header">
+              <span class="project-index">PROJECT</span>
+              <span class="project-number">02</span>
+            </div>
+            <div class="project-image-box">
+              <img src="/src/assets/project2.png" alt="Project 02" class="bw-image" />
+            </div>
+          </div>
+          <div class="col-right flex-column justify-between">
+            <div class="project-details">
+              <h3 class="project-title">KEY VISUAL PITCHES</h3>
+              <p class="project-desc">Directing key visuals and strategic campaign pitches for enterprise clients such as Bank Rakyat Indonesia, Vivo, and Citilink.</p>
+              <div class="project-meta">
+                <div><span class="mono-label">AGENCY</span><p>Colibri Communication</p></div>
+                <div><span class="mono-label">SERVICES</span><p>Art Direction, Design</p></div>
+              </div>
+            </div>
+            <div class="project-stats-block">
+              <span class="stats-label">PITCH SUCCESS</span>
+              <span class="stats-value">85%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: PROJECT 03 -->
+      <section class="slide project-detail-slide" id="slide-14" data-index="14">
+        <div class="slide-grid">
+          <div class="col-left border-right relative">
+            <span class="mono-label">14 / FEATURED WORK 03</span>
+            <div class="project-header">
+              <span class="project-index">PROJECT</span>
+              <span class="project-number">03</span>
+            </div>
+            <div class="project-image-box">
+              <img src="/src/assets/project3.png" alt="Project 03" class="bw-image" />
+            </div>
+          </div>
+          <div class="col-right flex-column justify-between">
+            <div class="project-details">
+              <h3 class="project-title">GRADIENT ARTWORK</h3>
+              <p class="project-desc">A curated set of abstract gradient photographic artworks contributed to global repositories, gaining substantial organic reach.</p>
+              <div class="project-meta">
+                <div><span class="mono-label">PLATFORM</span><p>Unsplash Contributor</p></div>
+                <div><span class="mono-label">SERVICES</span><p>Abstract Photography</p></div>
+              </div>
+            </div>
+            <div class="project-stats-block">
+              <span class="stats-label">ORGANIC DOWNLOADS</span>
+              <span class="stats-value">100K+</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: THANKS & CONTACT -->
+      <section class="slide thanks-slide" id="slide-15" data-index="15">
+        <div class="slide-grid">
+          <div class="col-left border-right">
+            <span class="mono-label">15 / END</span>
+            <div class="thanks-image-wrapper">
+              <img src="/src/assets/profile_headshot.jpg" alt="Zaky Jundana Portrait" class="bw-image" />
+            </div>
+            <div class="contact-box">
+              <p class="mono-label">GET IN TOUCH</p>
+              <form id="contact-form" class="contact-form">
+                <input type="text" id="form-name" placeholder="YOUR NAME" required />
+                <input type="email" id="form-email" placeholder="YOUR EMAIL" required />
+                <textarea id="form-message" placeholder="YOUR MESSAGE" rows="3" required></textarea>
+                <button type="submit" class="submit-btn">SEND MESSAGE ✦</button>
+              </form>
+              <div id="form-status" class="form-status"></div>
+            </div>
+          </div>
+          <div class="col-right justify-between flex-column">
+            <div class="thanks-block relative">
+              <div class="solid-circle-accent top-right"></div>
+              <h1 class="main-title overlay">THA<br>NKS</h1>
+              <span class="subtitle">FOR VISITING</span>
+            </div>
+            
+            <div class="contact-links-grid">
+              <a href="https://github.com" target="_blank" class="contact-link">
+                <span class="mono-label">GITHUB</span>
+                <span class="arrow-icon">↗</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" class="contact-link">
+                <span class="mono-label">LINKEDIN</span>
+                <span class="arrow-icon">↗</span>
+              </a>
+              <a href="mailto:zakyjundana@gmail.com" class="contact-link">
+                <span class="mono-label">EMAIL</span>
+                <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Slide Navigation Controllers (Desktop Buttons) -->
+    <div class="slide-controls">
+      <button id="prev-slide-btn" class="control-btn" aria-label="Previous Slide">
+        <span class="arrow">←</span> PREV
+      </button>
+      <button id="next-slide-btn" class="control-btn" aria-label="Next Slide">
+        NEXT <span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Keyboard Navigation Tips / Indicator -->
+    <div class="nav-hint">
+      <span class="mono-label">USE ← / → KEYBOARD KEYS OR SCROLL TO NAVIGATE</span>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
