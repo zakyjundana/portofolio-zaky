@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibeshot Creative - Preview</title>
+  <style>
+    :root {
+      --bg-color: #f7f4eb;
+      --text-color: #111;
+      --accent-color: #ff3e18;
+      --border-color: #e5dec9;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Header */
+    header {
+      padding: 30px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+    }
+    
+    .back-btn {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border: 1px solid var(--accent-color);
+      padding: 8px 16px;
+      transition: all 0.2s ease;
+    }
+    
+    .back-btn:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+    
+    /* Main Layout */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+    }
+    
+    .intro-block {
+      max-width: 700px;
+      margin-bottom: 50px;
+    }
+    
+    .intro-title {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      line-height: 1.1;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+    
+    /* Filters */
+    .filter-bar {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+    }
+    
+    .filter-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      color: #777;
+      padding-bottom: 5px;
+      position: relative;
+    }
+    
+    .filter-btn.active {
+      color: var(--text-color);
+    }
+    
+    .filter-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-color);
+    }
+    
+    /* Portfolio Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    .image-placeholder {
+      aspect-ratio: 4/5;
+      background: var(--border-color);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .image-placeholder::after {
+      content: 'IMAGE PLACEHOLDER';
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 0.1em;
+      font-weight: bold;
+    }
+    
+    .image-placeholder-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 62, 24, 0.05), rgba(0, 0, 0, 0.02));
+      transition: transform 0.4s ease;
+    }
+    
+    .grid-item:hover .image-placeholder-inner {
+      transform: scale(1.05);
+    }
+    
+    .item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    
+    .item-title {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+    
+    .item-cat {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">Vibeshot Creative</div>
+    <a href="./index.html" class="back-btn">← PORTFOLIO</a>
+  </header>
+
+  <main>
+    <div class="intro-block">
+      <h1 class="intro-title">Crafting premium visual campaigns for cultural &amp; commercial leaders.</h1>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">ALL WORKS</button>
+      <button class="filter-btn" data-filter="design">BRAND DESIGN</button>
+      <button class="filter-btn" data-filter="photo">PHOTOGRAPHY</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="grid-item" data-category="photo">
+        <div class="image-placeholder">
+          <div class="image-placeholder-inner" style="background: linear-gradient(135deg, #ffeedd, #e3dec3);"></div>
+        </div>
+        <div class="item-meta">
+          <h3 class="item-title">Editorial Portraiture</h3>
+          <span class="item-cat">PHOTOGRAPHY</span>
+        </div>
+      </div>
+
+      <div class="grid-item" data-category="design">
+        <div class="image-placeholder">
+          <div class="image-placeholder-inner" style="background: linear-gradient(135deg, #deeedc, #ccc8b8);"></div>
+        </div>
+        <div class="item-meta">
+          <h3 class="item-title">Warm Clay Visual Identity</h3>
+          <span class="item-cat">BRAND DESIGN</span>
+        </div>
+      </div>
+
+      <div class="grid-item" data-category="photo">
+        <div class="image-placeholder">
+          <div class="image-placeholder-inner" style="background: linear-gradient(135deg, #e0dced, #b8b3c4);"></div>
+        </div>
+        <div class="item-meta">
+          <h3 class="item-title">Brutalist Architecture</h3>
+          <span class="item-cat">PHOTOGRAPHY</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const gridItems = document.querySelectorAll('.grid-item');
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Toggle active button
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter items
+        const filter = btn.getAttribute('data-filter');
+        gridItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'flex';
+            setTimeout(() => item.style.opacity = '1', 50);
+          } else {
+            item.style.opacity = '0';
+            setTimeout(() => item.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

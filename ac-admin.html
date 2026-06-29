@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC Admin Hub - Preview</title>
+  <style>
+    :root {
+      --bg-color: #0b0c10;
+      --panel-bg: #1f2833;
+      --text-color: #c5c6c7;
+      --accent-color: #66fcf1;
+      --accent-dim: #45f3ff;
+      --border-color: #2c3539;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      border-right: 1px solid var(--border-color);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+    }
+    
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 10px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link.active, .nav-link:hover {
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      background: rgba(102, 252, 241, 0.05);
+    }
+    
+    .back-btn {
+      color: #ff3e18;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 10px;
+      border: 1px solid #ff3e18;
+      text-align: center;
+      margin-top: auto;
+      transition: all 0.2s ease;
+    }
+    
+    .back-btn:hover {
+      background: rgba(255, 62, 24, 0.1);
+    }
+    
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 30px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .status-badge {
+      font-size: 0.8rem;
+      background: rgba(0, 255, 102, 0.1);
+      color: #00ff66;
+      padding: 4px 10px;
+      border: 1px solid #00ff66;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    
+    /* Table / Query Console */
+    .console-box {
+      flex: 1;
+      background: #000;
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .search-input {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 12px;
+      font-family: inherit;
+      outline: none;
+      width: 250px;
+    }
+    
+    .search-input:focus {
+      border-color: var(--accent-color);
+    }
+    
+    .action-btn {
+      background: var(--accent-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    
+    .action-btn:hover {
+      background: var(--accent-dim);
+    }
+    
+    .table-container {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    th {
+      background: var(--panel-bg);
+      color: var(--accent-color);
+    }
+    
+    .status-ok {
+      color: #00ff66;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div>
+      <div class="logo">AC ADMIN HUB</div>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">CONSOLE</a>
+        <a href="#" class="nav-link">DB SETTINGS</a>
+        <a href="#" class="nav-link">SYSTEM HEALTH</a>
+      </div>
+    </div>
+    <a href="./index.html" class="back-btn">← PORTFOLIO</a>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div>
+        <h2>DB MONITOR &amp; LOG CONSOLE</h2>
+        <p style="font-size: 0.8rem; color: #888; margin-top: 5px;">Active session monitoring and query execution logs.</p>
+      </div>
+      <span class="status-badge">ONLINE / SYNCED</span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">QUERY RUNTIME</p>
+        <p class="stat-value" id="runtime-val">12.4 ms</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">TOTAL RECORDS</p>
+        <p class="stat-value" id="total-val">421,809</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">CACHE HIT RATE</p>
+        <p class="stat-value">98.4%</p>
+      </div>
+    </div>
+
+    <div class="console-box">
+      <div class="console-header">
+        <span class="mono-label" style="color: var(--accent-color);">[QUERY EXECUTION MONITOR]</span>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="search-query" class="search-input" placeholder="FILTER BY COMMAND..." />
+          <button class="action-btn" id="simulate-btn">RUN TEST QUERY</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table id="log-table">
+          <thead>
+            <tr>
+              <th>TIMESTAMP</th>
+              <th>OPERATION</th>
+              <th>QUERY STR</th>
+              <th>LATENCY</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>22:31:02</td>
+              <td>SELECT</td>
+              <td>SELECT * FROM users WHERE active = true LIMIT 50</td>
+              <td>4.2ms</td>
+              <td class="status-ok">SUCCESS</td>
+            </tr>
+            <tr>
+              <td>22:31:05</td>
+              <td>UPDATE</td>
+              <td>UPDATE pipeline SET status = 'pitching' WHERE id = 67</td>
+              <td>18.9ms</td>
+              <td class="status-ok">SUCCESS</td>
+            </tr>
+            <tr>
+              <td>22:31:12</td>
+              <td>INSERT</td>
+              <td>INSERT INTO logs (user_id, action) VALUES (12, 'login')</td>
+              <td>8.1ms</td>
+              <td class="status-ok">SUCCESS</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const simulateBtn = document.getElementById('simulate-btn');
+    const logTable = document.getElementById('log-table').querySelector('tbody');
+    const searchInput = document.getElementById('search-query');
+    const runtimeVal = document.getElementById('runtime-val');
+    const totalVal = document.getElementById('total-val');
+    
+    let totalRecords = 421809;
+    
+    // Simulate query execution
+    const sampleQueries = [
+      { op: "SELECT", q: "SELECT * FROM clients ORDER BY created_at DESC", lat: "5.1ms" },
+      { op: "UPDATE", q: "UPDATE settings SET theme = 'dark' WHERE user_id = 1", lat: "14.2ms" },
+      { op: "DELETE", q: "DELETE FROM temporary_sessions WHERE expires_at < NOW()", lat: "22.5ms" },
+      { op: "INSERT", q: "INSERT INTO feedback (name, msg) VALUES ('Client A', 'Awesome')", lat: "11.0ms" }
+    ];
+    
+    simulateBtn.addEventListener('click', () => {
+      const randomQuery = sampleQueries[Math.floor(Math.random() * sampleQueries.length)];
+      const now = new Date();
+      const timeStr = now.toTimeString().split(' ')[0];
+      
+      // Append row
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${timeStr}</td>
+        <td>${randomQuery.op}</td>
+        <td>${randomQuery.q}</td>
+        <td>${randomQuery.lat}</td>
+        <td class="status-ok">SUCCESS</td>
+      `;
+      logTable.insertBefore(row, logTable.firstChild);
+      
+      // Update statistics values
+      totalRecords += 1;
+      totalVal.innerText = totalRecords.toLocaleString();
+      runtimeVal.innerText = (parseFloat(randomQuery.lat) * (0.8 + Math.random() * 0.4)).toFixed(1) + " ms";
+    });
+    
+    // Search filter
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const rows = logTable.querySelectorAll('tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crevibehub - Preview</title>
+  <style>
+    :root {
+      --bg-color: #09090b;
+      --panel-bg: #18181b;
+      --text-color: #fafafa;
+      --accent-color: #a855f7;
+      --accent-hover: #c084fc;
+      --border-color: #27272a;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Header */
+    header {
+      padding: 20px 30px;
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .brand-logo {
+      width: 10px;
+      height: 10px;
+      background: var(--accent-color);
+      border-radius: 50%;
+    }
+    
+    .back-btn {
+      color: #71717a;
+      text-decoration: none;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      transition: all 0.2s ease;
+    }
+    
+    .back-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+    
+    /* Workspace Layout */
+    .workspace {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+    
+    /* Left Sidebar: Collaborators */
+    .collab-panel {
+      width: 260px;
+      border-right: 1px solid var(--border-color);
+      padding: 24px;
+      background: var(--panel-bg);
+    }
+    
+    .panel-title {
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #71717a;
+      margin-bottom: 15px;
+    }
+    
+    .user-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .user-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+    
+    .user-avatar {
+      width: 28px;
+      height: 28px;
+      background: #3f3f46;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+    
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      margin-left: auto;
+    }
+    
+    /* Central Panel: Tasks */
+    .tasks-panel {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .task-count {
+      font-size: 0.9rem;
+      color: #a1a1aa;
+    }
+    
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .task-item {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .task-checkbox {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #52525b;
+      border-radius: 4px;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+    }
+    
+    .task-checkbox:checked {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+    
+    .task-checkbox:checked::before {
+      content: "✔";
+      color: #fff;
+      font-size: 10px;
+    }
+    
+    .task-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .task-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .task-checkbox:checked + .task-details .task-title {
+      text-decoration: line-through;
+      color: #71717a;
+    }
+    
+    .task-desc {
+      font-size: 0.8rem;
+      color: #71717a;
+    }
+    
+    /* Right Panel: Comments */
+    .comments-panel {
+      width: 320px;
+      border-left: 1px solid var(--border-color);
+      background: var(--panel-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .comments-log {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .comment-card {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .comment-user {
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .comment-msg {
+      font-size: 0.8rem;
+      color: #d4d4d8;
+    }
+    
+    .comment-input-box {
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      gap: 10px;
+    }
+    
+    .comment-input {
+      flex: 1;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-family: inherit;
+      outline: none;
+      font-size: 0.8rem;
+    }
+    
+    .comment-input:focus {
+      border-color: var(--accent-color);
+    }
+    
+    .send-btn {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .send-btn:hover {
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <div class="brand-logo"></div>
+      CREVIBEHUB
+    </div>
+    <a href="./index.html" class="back-btn">← PORTFOLIO</a>
+  </header>
+
+  <div class="workspace">
+    <div class="collab-panel">
+      <div class="panel-title">Active Collaborators</div>
+      <div class="user-list">
+        <div class="user-item">
+          <div class="user-avatar" style="background: #a855f7;">ZJ</div>
+          <span>Zaky Jundana</span>
+          <div class="status-dot"></div>
+        </div>
+        <div class="user-item">
+          <div class="user-avatar">CL</div>
+          <span>Client Reviewer</span>
+          <div class="status-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tasks-panel">
+      <div>
+        <h2>SaaS Task Board</h2>
+        <p class="task-count" id="task-progress">1 of 3 tasks completed</p>
+      </div>
+
+      <div class="task-list">
+        <div class="task-item">
+          <input type="checkbox" class="task-checkbox" checked />
+          <div class="task-details">
+            <p class="task-title">Draft Layout Architecture</p>
+            <p class="task-desc">Set up flexbox grid systems and layout tokens.</p>
+          </div>
+        </div>
+
+        <div class="task-item">
+          <input type="checkbox" class="task-checkbox" />
+          <div class="task-details">
+            <p class="task-title">Asset Deliveries Sync</p>
+            <p class="task-desc">Download image payloads and profile components.</p>
+          </div>
+        </div>
+
+        <div class="task-item">
+          <input type="checkbox" class="task-checkbox" />
+          <div class="task-details">
+            <p class="task-title">Final Client Handover</p>
+            <p class="task-desc">Compile build assets and push to public repos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comments-panel">
+      <div class="comments-log" id="comments-log">
+        <div class="panel-title">Feedback Thread</div>
+        
+        <div class="comment-card">
+          <div class="comment-user">
+            <span>Client Reviewer</span>
+            <span style="color: #71717a; font-weight: normal; font-size: 0.7rem;">10m ago</span>
+          </div>
+          <p class="comment-msg">The grid system layout is super responsive! Let's complete the final asset sync.</p>
+        </div>
+      </div>
+
+      <div class="comment-input-box">
+        <input type="text" id="comment-text" class="comment-input" placeholder="Type a comment..." />
+        <button class="send-btn" id="send-comment">SEND</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tasks Progress update
+    const checkboxes = document.querySelectorAll('.task-checkbox');
+    const progressEl = document.getElementById('task-progress');
+    
+    function updateProgress() {
+      const total = checkboxes.length;
+      const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+      progressEl.innerText = `${completed} of ${total} tasks completed`;
+    }
+    
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', updateProgress);
+    });
+    
+    // Send Comment feature
+    const sendBtn = document.getElementById('send-comment');
+    const commentInput = document.getElementById('comment-text');
+    const commentsLog = document.getElementById('comments-log');
+    
+    sendBtn.addEventListener('click', () => {
+      const msg = commentInput.value.trim();
+      if (!msg) return;
+      
+      const card = document.createElement('div');
+      card.className = 'comment-card';
+      card.innerHTML = `
+        <div class="comment-user">
+          <span style="color: #a855f7;">Zaky Jundana</span>
+          <span style="color: #71717a; font-weight: normal; font-size: 0.7rem;">Just now</span>
+        </div>
+        <p class="comment-msg">${msg}</p>
+      `;
+      commentsLog.appendChild(card);
+      commentInput.value = '';
+      
+      // Auto scroll comments
+      commentsLog.scrollTop = commentsLog.scrollHeight;
+    });
+    
+    // Send comment on Enter
+    commentInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

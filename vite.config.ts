@@ -9,5 +9,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        ac_admin: './ac-admin.html',
+        vibeshot: './vibeshot.html',
+        crevibehub: './crevibehub.html'
+      }
+    }
   }
 });
