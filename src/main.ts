@@ -8,7 +8,7 @@ const prevBtn = document.getElementById('prev-slide-btn') as HTMLButtonElement;
 const nextBtn = document.getElementById('next-slide-btn') as HTMLButtonElement;
 const themeToggleBtn = document.getElementById('theme-toggle') as HTMLButtonElement;
 
-const totalSlides = 17;
+const totalSlides = 12;
 let currentSlide = 1;
 
 // Initialize theme from LocalStorage
@@ -168,4 +168,16 @@ if (contactForm && formStatus) {
       messageInput.value = '';
     }, 1500);
   });
+}
+
+// Prevent inner gallery scroll events from bubbling up and triggering slide changes
+const galleryScroll = document.querySelector('.gallery-scroll-container');
+if (galleryScroll) {
+  galleryScroll.addEventListener('wheel', (e) => {
+    const wheelEvent = e as WheelEvent;
+    // If scrolling horizontally within the gallery, stop propagation to the main slider snap container
+    if (Math.abs(wheelEvent.deltaX) > Math.abs(wheelEvent.deltaY)) {
+      e.stopPropagation();
+    }
+  }, { passive: true });
 }
